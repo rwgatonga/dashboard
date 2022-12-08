@@ -22,6 +22,57 @@ export default function WidgetSm() {
                     </button>
                 </li>
             </ul>
+            <ul className="widgetSmList">
+                <li className="widgetSmItemList">
+                    <img
+                    src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                    alt=""
+                    className="widgetSmImg"
+                    />
+                    <div className="widgetSmUser">
+                        <span className="widgetSmUsername">Anna Keller</span>
+                        <span className="widgetSmUserTitle">Software Engineer</span>
+                    </div>
+                    <button className="widgetSmButton">
+                        <VisibilityIcon className="widgetSmIcon" />
+                        Display
+                    </button>
+                </li>
+            </ul>
+            <ul className="widgetSmList">
+                <li className="widgetSmItemList">
+                    <img
+                    src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                    alt=""
+                    className="widgetSmImg"
+                    />
+                    <div className="widgetSmUser">
+                        <span className="widgetSmUsername">Anna Keller</span>
+                        <span className="widgetSmUserTitle">Software Engineer</span>
+                    </div>
+                    <button className="widgetSmButton">
+                        <VisibilityIcon className="widgetSmIcon" />
+                        Display
+                    </button>
+                </li>
+            </ul>
+            <ul className="widgetSmList">
+                <li className="widgetSmItemList">
+                    <img
+                    src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                    alt=""
+                    className="widgetSmImg"
+                    />
+                    <div className="widgetSmUser">
+                        <span className="widgetSmUsername">Anna Keller</span>
+                        <span className="widgetSmUserTitle">Software Engineer</span>
+                    </div>
+                    <button className="widgetSmButton">
+                        <VisibilityIcon className="widgetSmIcon" />
+                        Display
+                    </button>
+                </li>
+            </ul>
 
         </div>
     )
