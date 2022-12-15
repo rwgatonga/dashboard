@@ -1,8 +1,17 @@
 import './userList.css';
 import { DataGrid } from '@mui/x-data-grid';
+import { userRows } from '../../DummyData';
+import { useState } from 'react';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { Link } from 'react-router-dom';
 
 export default function UserList() {
+  const [data, setData] = useState(userRows);
+
+  const handleDelete = (id)=>{
+    setData(data.filter(item=>item.id !== id))
+  }
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     {
@@ -36,111 +45,21 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <button className="userListEdit">Edit</button>
-            <DeleteOutlineIcon className="userListDelete" />
+            <Link to={'/user/' + params.row.id}>
+              <button className="userListEdit">Edit</button>
+            </Link>
+            <DeleteOutlineIcon className="userListDelete" onClick={()=> handleDelete(params.row.id)} />
           </>
         );
       },
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 2,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 3,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 4,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 5,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 6,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 7,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 8,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 9,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-    {
-      id: 10,
-      username: 'John Snow',
-      avatar:
-        'https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      email: 'joesnow@yahoo.com',
-      status: 'active',
-      transaction: '$120.00',
-    },
-  ];
-
   return (
     <div className="userList">
       <DataGrid
-        rows={rows} disableSelectionOnClick
+        rows={data}
+        disableSelectionOnClick
         columns={columns}
         pageSize={8}
         rowsPerPageOptions={[5]}
